@@ -1,5 +1,6 @@
 print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
 
+import statistics
 
 # Exercise 3
 def display_main_menu():
@@ -31,25 +32,25 @@ def calc_average_temperature(temp):
 
 
 def calc_min_max_temperature(temp):
-    int_array = list(map(int,temp))
-    min = temp[0]
-    max = temp[0]
-    for element in int_array:
-        if (element<min):
-            min = element
-        if (element>max):
-            max = element
-    print("Minimum temperature: " + str(min))
-    print("Maximum temperature: " + str(max))
+    minimum = min(temp)
+    maximum = max(temp)
+    print("Minimum temperature: " + str(minimum))
+    print("Maximum temperature: " + str(maximum))
 
-    return min,max
+    return [minimum, maximum]
 
 
-def main():
-    display_main_menu()
-    temp = get_user_input()
-    calc_average_temperature(temp)
-    calc_min_max_temperature(temp)
+def median_temperature(temp):
+    median = statistics.median(temp)
+
+    print("Median temperature: " + str(median))
+    return median
 
 
-main()
+"""
+display_main_menu()
+temp = get_user_input()
+calc_average_temperature(temp)
+calc_min_max_temperature(temp)
+median_temperature(temp)
+"""
